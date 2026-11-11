@@ -19,7 +19,8 @@ export function monthlyBudget(input = {}) {
   // A planning assumption, NOT tax withholding or a tax return calculation.
   const estimatedTax = Math.max(0, monthlyGross - retirement) * effectiveTaxPercent / 100;
   const premium = clamp(input.premium, 0, 100000);
-  const takeHome = Math.max(0, monthlyGross - retirement - estimatedTax - premium);
+  // Preserve a negative result when premiums exceed income so shortfalls remain visible.
+  const takeHome = monthlyGross - retirement - estimatedTax - premium;
   const expenses = ["rent", "utilities", "food", "transport", "debt", "other"].reduce(
     (sum, key) => sum + clamp(input[key], 0, 100000), 0
   );
