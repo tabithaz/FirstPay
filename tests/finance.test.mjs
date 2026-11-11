@@ -38,3 +38,11 @@ test("extreme percentages are clamped", () => {
   assert.equal(p.estimatedTax, 75);
   assert.equal(p.retirement, 0);
 });
+
+test("paycheck shortfalls are not hidden when premiums exceed income", () => {
+  const p = monthlyBudget({ salary: 1200, premium: 200, rent: 50 });
+  assert.equal(p.monthlyGross, 100);
+  assert.equal(p.takeHome, -100);
+  assert.equal(p.remaining, -150);
+  assert.equal(p.savingsRate, 0);
+});
