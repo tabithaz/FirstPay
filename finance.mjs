@@ -13,7 +13,7 @@ export function monthlyBudget(input = {}) {
   const salary = clamp(input.salary, 0, 10000000);
   const bonus = clamp(input.bonus, 0, 10000000);
   const retirementPercent = clamp(input.retirementPercent, 0, 100);
-  const effectiveTaxPercent = clamp(input.effectiveTaxPercent, 0, 75);
+  const effectiveTaxPercent = clamp(input.effectiveTaxPercent, 0, 100);
   const monthlyGross = (salary + bonus) / 12;
   const retirement = (salary / 12) * retirementPercent / 100;
   // A planning assumption, NOT tax withholding or a tax return calculation.
