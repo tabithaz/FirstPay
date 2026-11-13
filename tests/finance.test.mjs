@@ -35,7 +35,7 @@ test("loan payoff handles zero interest and impossible payments", () => {
 });
 test("extreme percentages are clamped", () => {
   const p = monthlyBudget({ salary: 1200, effectiveTaxPercent: 999, retirementPercent: -100 });
-  assert.equal(p.estimatedTax, 75);
+  assert.equal(p.estimatedTax, 100);
   assert.equal(p.retirement, 0);
 });
 
@@ -45,4 +45,10 @@ test("paycheck shortfalls are not hidden when premiums exceed income", () => {
   assert.equal(p.takeHome, -100);
   assert.equal(p.remaining, -150);
   assert.equal(p.savingsRate, 0);
+});
+
+test("effective tax assumptions match the full 0–100% input range", () => {
+  assert.equal(monthlyBudget({ salary: 1200, effectiveTaxPercent: 100 }).estimatedTax, 100);
+  assert.equal(monthlyBudget({ salary: 1200, effectiveTaxPercent: 0 }).estimatedTax, 0);
+  assert.equal(monthlyBudget({ salary: 1200, effectiveTaxPercent: 150 }).estimatedTax, 100);
 });
