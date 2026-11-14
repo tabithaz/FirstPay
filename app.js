@@ -189,6 +189,7 @@ document.getElementById("export").addEventListener("click",()=>{
   const blob=new Blob([JSON.stringify({version:1,...state},null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="firstpay-scenarios.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
+document.getElementById("import-trigger").addEventListener("click",()=>document.getElementById("import").click());
 document.getElementById("import").addEventListener("change",async event=>{
   const file=event.target.files?.[0];if(!file)return;
   try {if(file.size>100000)throw new Error("File too large");
