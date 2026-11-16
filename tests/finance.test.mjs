@@ -52,3 +52,11 @@ test("effective tax assumptions match the full 0–100% input range", () => {
   assert.equal(monthlyBudget({ salary: 1200, effectiveTaxPercent: 0 }).estimatedTax, 0);
   assert.equal(monthlyBudget({ salary: 1200, effectiveTaxPercent: 150 }).estimatedTax, 100);
 });
+
+test("boolean, null, and blank inputs do not become financial amounts", () => {
+  for (const value of [true, false, null, "", "   ", NaN, Infinity, -Infinity]) {
+    assert.equal(amount(value, 7), 7);
+  }
+  assert.equal(amount("12.5", 7), 12.5);
+  assert.equal(monthlyBudget({ salary: true, rent: true }).remaining, 0);
+});
