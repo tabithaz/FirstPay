@@ -1,5 +1,6 @@
 // FirstPay domain logic: deterministic, dependency-free calculations.
 export function amount(value, fallback = 0) {
+  if (typeof value === "boolean" || value === null || (typeof value === "string" && value.trim() === "")) return fallback;
   const n = Number(value);
   return Number.isFinite(n) ? n : fallback;
 }
