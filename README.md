@@ -10,12 +10,14 @@
 - **Local save:** scenarios stay in your browser, with export/import supported.
 - Responsive, keyboard-friendly, screen-reader-conscious design with no accounts, trackers, or external dependencies.
 
-## Run
-Open `index.html` in a modern browser. For the full recommended experience, run:
+## Run locally
+From the repository root, serve the app on your own machine:
+
 ```bash
-python3 -m http.server 8000
-# visit http://localhost:8000
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
+
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in a modern browser. Press `Ctrl+C` in the terminal to stop the server. You can also open `index.html` directly for a quick preview.
 
 ## Test
 ```bash
