@@ -60,3 +60,16 @@ test("boolean, null, and blank inputs do not become financial amounts", () => {
   assert.equal(amount("12.5", 7), 12.5);
   assert.equal(monthlyBudget({ salary: true, rent: true }).remaining, 0);
 });
+
+test("annual bonus is averaged across months but retirement contributions use base salary", () => {
+  const p = monthlyBudget({ salary: 60000, bonus: 12000, effectiveTaxPercent: 20, retirementPercent: 10, rent: 1000 });
+  assert.equal(p.monthlyGross, 6000);
+  assert.equal(p.retirement, 500);
+  assert.equal(p.estimatedTax, 1100);
+  assert.equal(p.takeHome, 4400);
+  assert.equal(p.remaining, 3400);
+});
+
+test("zero annual bonus preserves salary-only monthly gross", () => {
+  assert.equal(monthlyBudget({ salary: 60000, bonus: 0 }).monthlyGross, 5000);
+});
