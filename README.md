@@ -30,7 +30,8 @@ Repository Settings → Pages → Build and deployment → Deploy from a branch 
 
 ## Accuracy and scope
 **Educational planning tool, not tax, financial, investment, insurance, or legal advice.**
-- Effective income tax is a **user-adjustable illustrative percentage**, not an IRS withholding calculation. Actual income, filing status, taxes, annual limits, location, and deductions differ.
+- Effective income tax is a **user-adjustable illustrative percentage**, not an IRS withholding calculation.
+- The paycheck studio averages an entered **annual cash bonus across 12 months** for comparison; actual bonus timing, eligibility, and withholding may differ. Retirement contributions in this model apply to base salary only, and taxes are estimated on gross cash less the modeled retirement contribution. Actual income, filing status, taxes, annual limits, location, and deductions differ.
 - Salary, bonuses, employer match, and benefits are handled as simplified scenarios. Offer comparisons are *estimates*, not compensation advice.
 - Insurance simulations assume eligible in-network allowed expenses with one deductible/coinsurance structure, and ignore networks, copays, prescription tiers, plan-specific rules, and non-covered care.
 - The app does not store bank credentials or connect to financial institutions.
