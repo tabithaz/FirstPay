@@ -21,7 +21,7 @@ const schema = {
   coinsurancePercent: ["Coinsurance you pay (%)", 5], oopMax: ["Out-of-pocket maximum ($)", 100],
   charges: ["Annual eligible healthcare charges ($)", 500]
 };
-const budgetKeys = ["salary", "effectiveTaxPercent", "retirementPercent", "premium", "rent", "utilities", "food", "transport", "debt", "other"];
+const budgetKeys = ["salary", "bonus", "effectiveTaxPercent", "retirementPercent", "premium", "rent", "utilities", "food", "transport", "debt", "other"];
 const offerKeys = ["salary", "signingBonus", "relocationCost", "effectiveTaxPercent", "retirementPercent", "premium", "rent", "utilities", "food", "transport", "debt", "other"];
 const healthKeys = ["monthlyPremium", "deductible", "coinsurancePercent", "oopMax"];
 const percentKeys = new Set(["effectiveTaxPercent", "retirementPercent", "coinsurancePercent"]);
